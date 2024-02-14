@@ -5,17 +5,20 @@ namespace AuthService.Infrastructure.Data;
 
 public class UserContext : DbContext, IUserContext
 {
-    public DbSet<Teacher> Teachers { get; set; } = null!;
+    private readonly string _connectionString;
 
-    public DbSet<Student> Students { get; set; } = null!;
-
-    public UserContext(DbContextOptions<UserContext> options)
-        : base(options)
-    { 
+    public DbSet<User> Users { get; set; } = null!;
+    
+    public UserContext(string connectionString)
+    {
+        _connectionString = connectionString;
     }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=RusParksDb;Username=postgres;Password=1111");
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseNpgsql(_connectionString);
+        }
     }
 }

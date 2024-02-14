@@ -1,10 +1,15 @@
 using AuthService.Core.Repositories;
+using AuthService.Infrastructure.Data;
 using AuthService.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.Negotiate;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var connection = builder.Configuration.GetConnectionString("DatabaseSettings:DefaultConnection");
+
+builder.Services.AddDbContext<UserContext>(options => options.UseNpgsql(connection));
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
