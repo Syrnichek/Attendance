@@ -3,22 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AuthService.Infrastructure.Data;
 
-public class UserContext : DbContext, IUserContext
+public class UserContext : DbContext
 {
     private readonly string _connectionString;
 
     public DbSet<User> Users { get; set; } = null!;
-    
-    public UserContext(string connectionString)
+
+    public UserContext(DbContextOptions<UserContext> options) : base(options)
     {
-        _connectionString = connectionString;
-    }
-    
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseNpgsql(_connectionString);
-        }
+        
     }
 }

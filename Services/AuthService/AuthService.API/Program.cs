@@ -1,3 +1,6 @@
+using System.Reflection;
+using AuthService.Application.Handlers;
+using AuthService.Application.Queries;
 using AuthService.Core.Repositories;
 using AuthService.Infrastructure.Data;
 using AuthService.Infrastructure.Repositories;
@@ -10,7 +13,11 @@ var builder = WebApplication.CreateBuilder(args);
 var connection = builder.Configuration.GetConnectionString("DatabaseSettings:DefaultConnection");
 
 builder.Services.AddDbContext<UserContext>(options => options.UseNpgsql(connection));
-
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
+    typeof(GetUserByIdQueryHandler).Assembly,
+    typeof(GetUserByIdQuery).Assembly
+    ));
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddControllers();
