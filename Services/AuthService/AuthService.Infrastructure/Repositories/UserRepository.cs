@@ -14,7 +14,7 @@ public class UserRepository : IUserRepository
         _userContext = userContext;
     }
 
-    public async Task<User> GetUser(int id)
+    public async Task<User> GetUserAsync(int id)
     {
         return await _userContext.Users.SingleOrDefaultAsync(u => u.Id == id);
     }

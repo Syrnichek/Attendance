@@ -15,7 +15,7 @@ public class AuthController : ControllerBase
     {
         _mediator = mediator;
     }
-
+    /*
     [HttpGet]
     [Route("[action]/{id}")]
     public async Task<ActionResult<UserResponse>> GetUserById(int id)
@@ -23,5 +23,5 @@ public class AuthController : ControllerBase
         var query = new GetUserByIdQuery(id);
         var result = await _mediator.Send(query);
         return Ok(result);
-    }
+    }*/
 }
