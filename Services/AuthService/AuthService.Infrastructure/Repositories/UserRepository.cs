@@ -16,6 +16,6 @@ public class UserRepository : IUserRepository
 
     public async Task<User> GetUserAsync(string userName, string password)
     {
-        return await _userContext.Users.SingleOrDefaultAsync(u => u.UserName == userName && u.Password == password);
+        return await _userContext.Users.SingleOrDefaultAsync(u => u.UserName == userName && u.Password == password) ?? throw new InvalidOperationException();
     }
 }

@@ -17,9 +17,16 @@ public class AuthController : ControllerBase
     
     [HttpPost]
     [Route("[action]")]
-    public async Task<ActionResult<string>> GetUserById(AuthenticateUserCommand authenticateUserCommand)
+    public async Task<ActionResult<string>> GetUserById([FromBody] AuthenticateUserCommand authenticateUserCommand)
     {
-        var result = await _mediator.Send(authenticateUserCommand);
-        return Ok(result);
+        try
+        {
+            var result = await _mediator.Send(authenticateUserCommand);
+            return Ok(result);
+        }
+        catch (InvalidOperationException) //Поменять экспешн на кастомный, а то не круто
+        {
+            return Unauthorized();
+        }
     }
 }

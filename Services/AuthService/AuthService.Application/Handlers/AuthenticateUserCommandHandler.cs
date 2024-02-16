@@ -6,9 +6,9 @@ namespace AuthService.Application.Handlers;
 
 public class AuthenticateUserCommandHandler : IRequestHandler<AuthenticateUserCommand, string>
 {
-    public readonly IUserRepository _userRepository;
+    private readonly IUserRepository _userRepository;
 
-    public readonly IJwtTokenGenerator _jwtTokenGenerator;
+    private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
     public AuthenticateUserCommandHandler(IUserRepository userRepository, IJwtTokenGenerator jwtTokenGenerator)
     {
