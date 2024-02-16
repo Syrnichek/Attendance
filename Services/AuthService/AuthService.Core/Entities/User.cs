@@ -11,5 +11,5 @@ public class User
 
     public string Password { get; set; }
 
-    public Enum UserRole { get; set; }
+    public UserRole UserRole { get; set; }
 }

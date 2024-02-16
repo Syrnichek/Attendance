@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using AuthService.Core.Entities;
 
 namespace AuthService.Application.Responses;
 
@@ -11,5 +12,5 @@ public class UserResponse
 
     public string Password { get; set; }
 
-    public Enum UserRole { get; set; }
+    public UserRole UserRole { get; set; }
 }
