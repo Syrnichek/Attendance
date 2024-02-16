@@ -1,5 +1,4 @@
-using AuthService.Application.Queries;
-using AuthService.Application.Responses;
+using AuthService.Application.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,13 +14,12 @@ public class AuthController : ControllerBase
     {
         _mediator = mediator;
     }
-    /*
-    [HttpGet]
-    [Route("[action]/{id}")]
-    public async Task<ActionResult<UserResponse>> GetUserById(int id)
+    
+    [HttpPost]
+    [Route("[action]")]
+    public async Task<ActionResult<string>> GetUserById(AuthenticateUserCommand authenticateUserCommand)
     {
-        var query = new GetUserByIdQuery(id);
-        var result = await _mediator.Send(query);
+        var result = await _mediator.Send(authenticateUserCommand);
         return Ok(result);
-    }*/
+    }
 }

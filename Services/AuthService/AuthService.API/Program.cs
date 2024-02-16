@@ -1,12 +1,10 @@
-using System.Reflection;
 using System.Text;
+using AuthService.Application.Commands;
 using AuthService.Application.Handlers;
-using AuthService.Application.Queries;
 using AuthService.Core.Repositories;
 using AuthService.Infrastructure.Data;
 using AuthService.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authentication.Negotiate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -17,8 +15,8 @@ var connection = builder.Configuration.GetConnectionString("DatabaseSettings:Def
 
 builder.Services.AddDbContext<UserContext>(options => options.UseNpgsql(connection));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
-    typeof(GetUserByIdQueryHandler).Assembly,
-    typeof(GetUserByIdQuery).Assembly
+    typeof(AuthenticateUserCommandHandler).Assembly,
+    typeof(AuthenticateUserCommand).Assembly
     ));
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
