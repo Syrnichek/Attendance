@@ -10,7 +10,7 @@ public class GenerateQrCodeCommandHandler : IRequestHandler<GenerateQrCodeComman
     public Task<byte[]> Handle(GenerateQrCodeCommand request, CancellationToken cancellationToken)
     {
         var qrGenerator = new QRCodeGenerator();
-        var qrCodeData = qrGenerator.CreateQrCode(request.LessonId, QRCodeGenerator.ECCLevel.Q);
+        var qrCodeData = qrGenerator.CreateQrCode(request.LessonId.ToString(), QRCodeGenerator.ECCLevel.Q);
         var qrCode = new QRCode(qrCodeData);
         
         using (var stream = new MemoryStream())
