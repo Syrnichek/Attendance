@@ -17,9 +17,9 @@ public class QrCodeController : ControllerBase
     
     [HttpPost]
     [Route("[action]")]
-    public async Task<ActionResult<byte[]>> GenerateQrCode([FromBody] GenerateQrCodeCommand generateQrCodeCommand)
+    public async Task<ActionResult> GenerateQrCode([FromBody] GenerateQrCodeCommand generateQrCodeCommand)
     {
         var qrCodeBytes  = await _mediator.Send(generateQrCodeCommand);
-        return qrCodeBytes;
+        return File(qrCodeBytes, "image/png", "qrcode.png");
     }
 }

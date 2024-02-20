@@ -10,4 +10,5 @@
       <ProjectReference Include="..\LessonsManagmentService.Application\LessonsManagmentService.Application.csproj" />
     </ItemGroup>
 
+
 </Project>

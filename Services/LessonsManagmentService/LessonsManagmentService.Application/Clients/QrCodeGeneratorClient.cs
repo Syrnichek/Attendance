@@ -1,8 +1,9 @@
 using System.Net.Http.Json;
+using LessonsManagmentService.Core.Data;
 
 namespace LessonsManagmentService.Application.Clients;
 
-public class QrCodeGeneratorClient
+public class QrCodeGeneratorClient : IQrCodeGeneratorClient
 {
     private readonly HttpClient _httpClient;
 
@@ -13,7 +14,7 @@ public class QrCodeGeneratorClient
 
     public async Task<byte[]> GenerateQrCodeAsync(string data)
     {
-        var response = await _httpClient.PostAsJsonAsync("api/QrCode/GenerateQrCode", new { Data = data });
+        var response = await _httpClient.PostAsJsonAsync("http://localhost:5245/api/QrCode/GenerateQrCode", new { Data = data });
 
         if (response.IsSuccessStatusCode)
         {

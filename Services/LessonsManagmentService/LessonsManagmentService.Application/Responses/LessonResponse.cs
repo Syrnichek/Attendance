@@ -1,6 +1,6 @@
-namespace LessonsManagmentService.Core.Entities;
+namespace LessonsManagmentService.Application.Responses;
 
-public class LessonDetails
+public class LessonResponse
 {
     public Guid LessonId { get; set; }
 
