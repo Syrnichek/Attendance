@@ -6,4 +6,15 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Commands\" />
+      <Folder Include="Handlers\" />
+      <Folder Include="Mappers\" />
+      <Folder Include="Responses\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AttendanceService.Core\AttendanceService.Core.csproj" />
+    </ItemGroup>
+
 </Project>

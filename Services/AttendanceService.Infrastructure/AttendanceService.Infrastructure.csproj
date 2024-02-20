@@ -6,4 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\AttendanceService.Application\AttendanceService.Application.csproj" />
+    </ItemGroup>
+
 </Project>
