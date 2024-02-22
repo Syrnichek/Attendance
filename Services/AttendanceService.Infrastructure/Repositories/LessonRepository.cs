@@ -14,6 +14,11 @@ public class LessonRepository : ILessonRepository
         _applicationContext = applicationContext;
     }
 
+    public async Task<List<Lesson>> GetAllLessons()
+    {
+        return await _applicationContext.Lessons.ToListAsync();
+    }
+
     public async Task<Lesson> GetLessonByGuid(Guid lessonId)
     {
         return await _applicationContext.Lessons.SingleOrDefaultAsync(l => l.LessonId == lessonId) ?? throw new InvalidOperationException();

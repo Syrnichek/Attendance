@@ -6,7 +6,7 @@ public class Lesson
 
     public string TeacherId { get; set; }
     
-    public List<string> StudentIds { get; set; }
+    public List<Student> StudentIds { get; set; }
     
     public byte[] QrCode { get; set; }
 }
