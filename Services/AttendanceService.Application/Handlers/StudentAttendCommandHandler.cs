@@ -1,6 +1,7 @@
 using AttendanceService.Application.Clients;
 using AttendanceService.Application.Commands;
 using AttendanceService.Core.Entities;
+using AttendanceService.Core.Entities.Enums;
 using AttendanceService.Core.Repositories;
 using MediatR;
 
@@ -8,15 +9,12 @@ namespace AttendanceService.Application.Handlers;
 
 public class StudentAttendCommandHandler : IRequestHandler<StudentAttendCommand>
 {
-    private readonly IStudentRepository _studentRepository;
-
     private readonly ILessonRepository _lessonRepository;
 
     private readonly JwtParserClient _jwtParserClient;
 
-    public StudentAttendCommandHandler(IStudentRepository studentRepository, ILessonRepository lessonRepository, JwtParserClient jwtParserClient)
+    public StudentAttendCommandHandler(ILessonRepository lessonRepository, JwtParserClient jwtParserClient)
     {
-        _studentRepository = studentRepository;
         _lessonRepository = lessonRepository;
         _jwtParserClient = jwtParserClient;
     }

@@ -1,4 +1,4 @@
-namespace AttendanceService.Core.Entities;
+namespace AttendanceService.Core.Entities.Enums;
 
 public enum TeacherGradeEnum
 {

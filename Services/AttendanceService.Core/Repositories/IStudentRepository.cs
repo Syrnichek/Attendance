@@ -7,6 +7,4 @@ public interface IStudentRepository
     public Task<List<Student>> GetAllStudents();
 
     public Task<Student> GetStudentById(int id);
-
-    public Task UpdateStudentFlagAttended(int id);
 }

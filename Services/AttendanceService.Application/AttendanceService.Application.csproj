@@ -7,11 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Mappers\" />
-      <Folder Include="Queries\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\AttendanceService.Core\AttendanceService.Core.csproj" />
     </ItemGroup>
 

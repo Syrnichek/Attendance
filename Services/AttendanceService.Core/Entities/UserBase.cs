@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using AttendanceService.Core.Entities.Enums;
 
 namespace AttendanceService.Core.Entities;
 

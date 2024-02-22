@@ -1,3 +1,5 @@
+using AttendanceService.Core.Entities.Enums;
+
 namespace AttendanceService.Core.Entities;
 
 public class Teacher : UserBase

@@ -23,14 +23,4 @@ public class StudentRepository : IStudentRepository
     {
         return await _applicationContext.Students.SingleOrDefaultAsync(s => s.Id == id) ?? throw new InvalidOperationException();
     }
-
-    public async Task UpdateStudentFlagAttended(int id)
-    {
-        var student = await _applicationContext.Students.FindAsync(id);
-        
-        if (student != null)
-        {
-            student.StudentFlagEnum = StudentFlagEnum.Attended;
-        }
-    }
 }
