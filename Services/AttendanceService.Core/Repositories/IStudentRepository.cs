@@ -8,5 +8,5 @@ public interface IStudentRepository
 
     public Task<Student> GetStudentById(int id);
 
-    public Task<Student> UpdateStudentFlagAttended(int id);
+    public Task UpdateStudentFlagAttended(int id);
 }

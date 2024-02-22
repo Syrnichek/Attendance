@@ -6,5 +6,5 @@ public interface ILessonRepository
 {
     public Task<Lesson> GetLessonByGuid(Guid lessonId);
 
-    public Task SetLesson(Lesson lesson);
+    public Task AddLesson(Lesson lesson);
 }
