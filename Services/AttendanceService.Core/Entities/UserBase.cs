@@ -8,4 +8,6 @@ public class UserBase
     public int Id { get; set; }
 
     public string UserName { get; set; }
+
+    public UserRoleEnum UserRole { get; set; }
 }

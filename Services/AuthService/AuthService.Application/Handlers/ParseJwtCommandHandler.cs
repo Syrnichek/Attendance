@@ -22,7 +22,12 @@ public class ParseJwtCommandHandler : IRequestHandler<ParseJwtCommand, UserRespo
             Enum.TryParse(role, out UserRole userRole);
             var userId = int.Parse(id); 
             
-            return new UserResponse { Id = userId, UserName = userName, UserRole = userRole };
+            return new UserResponse
+            {
+                Id = userId, 
+                UserName = userName,
+                UserRole = userRole
+            };
         }
 
         return null;
