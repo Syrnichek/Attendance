@@ -1,12 +1,12 @@
 using System.Net.Http.Json;
 using System.Text;
-using AttendanceService.Application.Responses;
+using AttendanceService.Core.Data;
 using AttendanceService.Core.Entities;
 using Newtonsoft.Json;
 
 namespace AttendanceService.Application.Clients;
 
-public class LessonGeneratorClient
+public class LessonGeneratorClient : ILessonGeneratorClient
 {
     private readonly HttpClient _httpClient;
 

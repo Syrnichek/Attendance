@@ -1,11 +1,12 @@
 using System.Net.Http.Json;
 using System.Text;
+using AttendanceService.Core.Data;
 using AttendanceService.Core.Entities;
 using Newtonsoft.Json;
 
 namespace AttendanceService.Application.Clients;
 
-public class JwtParserClient
+public class JwtParserClient : IJwtParserClient
 {
     private readonly HttpClient _httpClient;
 

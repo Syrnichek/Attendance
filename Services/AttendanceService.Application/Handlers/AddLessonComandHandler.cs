@@ -1,6 +1,6 @@
-using AttendanceService.Application.Clients;
 using AttendanceService.Application.Commands;
-using AttendanceService.Application.Responses;
+using AttendanceService.Core.Data;
+using AttendanceService.Core.Entities;
 using AttendanceService.Core.Repositories;
 using MediatR;
 
@@ -8,15 +8,15 @@ namespace AttendanceService.Application.Handlers;
 
 public class AddLessonComandHandler : IRequestHandler<AddLessonCommand>
 {
-    private readonly LessonGeneratorClient _lessonGeneratorClient;
+    private readonly ILessonGeneratorClient _lessonGeneratorClient;
 
-    private readonly JwtParserClient _jwtParserClient;
+    private readonly IJwtParserClient _jwtParserClient;
 
     private readonly ILessonRepository _lessonRepository;
 
     private readonly IStudentRepository _studentRepository;
 
-    public AddLessonComandHandler(LessonGeneratorClient lessonGeneratorClient, ILessonRepository lessonRepository, JwtParserClient jwtParserClient, IStudentRepository studentRepository)
+    public AddLessonComandHandler(ILessonGeneratorClient lessonGeneratorClient, ILessonRepository lessonRepository, IJwtParserClient jwtParserClient, IStudentRepository studentRepository)
     {
         _lessonGeneratorClient = lessonGeneratorClient;
         _lessonRepository = lessonRepository;

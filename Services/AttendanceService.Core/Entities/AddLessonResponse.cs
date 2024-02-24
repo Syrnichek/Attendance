@@ -1,4 +1,4 @@
-namespace AttendanceService.Application.Responses;
+namespace AttendanceService.Core.Entities;
 
 public class AddLessonResponse
 {
