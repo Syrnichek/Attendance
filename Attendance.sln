@@ -32,13 +32,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRGenerationService.API", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LessonsManagmentService.API", "Services\LessonsManagmentService\LessonsManagmentService.API\LessonsManagmentService.API.csproj", "{9140E636-9A7A-44A8-8FAE-BD56C566BF44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceService.API", "Services\AttendanceService.API\AttendanceService.API.csproj", "{25D3CFAD-F097-4FB2-B400-D48C7E1BF028}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceService.API", "Services\AttendanceService\AttendanceService.API\AttendanceService.API.csproj", "{25D3CFAD-F097-4FB2-B400-D48C7E1BF028}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceService.Core", "Services\AttendanceService.Core\AttendanceService.Core.csproj", "{6C5820F8-58E7-4012-85FC-7176D44AA48D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceService.Core", "Services\AttendanceService\AttendanceService.Core\AttendanceService.Core.csproj", "{6C5820F8-58E7-4012-85FC-7176D44AA48D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceService.Application", "Services\AttendanceService.Application\AttendanceService.Application.csproj", "{F49C6C81-B5AA-4DFE-8022-CEC53E852061}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceService.Application", "Services\AttendanceService\AttendanceService.Application\AttendanceService.Application.csproj", "{F49C6C81-B5AA-4DFE-8022-CEC53E852061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceService.Infrastructure", "Services\AttendanceService.Infrastructure\AttendanceService.Infrastructure.csproj", "{80B984EF-CC3B-419F-A402-EE58E8ED0E03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceService.Infrastructure", "Services\AttendanceService\AttendanceService.Infrastructure\AttendanceService.Infrastructure.csproj", "{80B984EF-CC3B-419F-A402-EE58E8ED0E03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JwtParserService", "JwtParserService", "{59DA6A44-710E-4E61-9E5E-C87DA8F5AD30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtParser.API", "Services\JwtParser.API\JwtParser.API.csproj", "{8755E6EF-697C-4CB7-A914-7B0921C4397A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -106,6 +110,10 @@ Global
 		{80B984EF-CC3B-419F-A402-EE58E8ED0E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80B984EF-CC3B-419F-A402-EE58E8ED0E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80B984EF-CC3B-419F-A402-EE58E8ED0E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8755E6EF-697C-4CB7-A914-7B0921C4397A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8755E6EF-697C-4CB7-A914-7B0921C4397A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8755E6EF-697C-4CB7-A914-7B0921C4397A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8755E6EF-697C-4CB7-A914-7B0921C4397A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3FB17C7C-649B-4733-A86C-E1561022E4BB} = {95ABD16C-38B3-4864-BCAE-95E3D2ECCE22}
@@ -127,5 +135,7 @@ Global
 		{6C5820F8-58E7-4012-85FC-7176D44AA48D} = {EE5334B3-2973-44A7-85BE-8F0B8389226E}
 		{F49C6C81-B5AA-4DFE-8022-CEC53E852061} = {EE5334B3-2973-44A7-85BE-8F0B8389226E}
 		{80B984EF-CC3B-419F-A402-EE58E8ED0E03} = {EE5334B3-2973-44A7-85BE-8F0B8389226E}
+		{59DA6A44-710E-4E61-9E5E-C87DA8F5AD30} = {95ABD16C-38B3-4864-BCAE-95E3D2ECCE22}
+		{8755E6EF-697C-4CB7-A914-7B0921C4397A} = {59DA6A44-710E-4E61-9E5E-C87DA8F5AD30}
 	EndGlobalSection
 EndGlobal

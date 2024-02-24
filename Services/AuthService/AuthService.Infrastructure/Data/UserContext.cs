@@ -14,7 +14,7 @@ public class UserContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=AttendanceDb;Username=postgres;Password=1111", 
+        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=AuthAttendanceDb;Username=postgres;Password=1111", 
             b => b.MigrationsAssembly("AuthService.API"));
     }
 }

@@ -9,7 +9,12 @@ namespace AttendanceService.API.Controllers;
 public class AttendanceServiceController : ControllerBase
 {
     private readonly IMediator _mediator;
-    
+
+    public AttendanceServiceController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+
     [HttpPost]
     [Route("[action]")]
     public async Task<ActionResult> AddLesson([FromBody] AddLessonCommand addLessonCommand)

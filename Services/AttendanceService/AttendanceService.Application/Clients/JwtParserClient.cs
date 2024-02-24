@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
 using AttendanceService.Core.Data;
@@ -17,11 +18,9 @@ public class JwtParserClient : IJwtParserClient
     
     public async Task<UserBase> ParseJwtAsync(string data)
     {
-        string jsonContent = JsonConvert.SerializeObject(data);
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", data);
         
-        StringContent content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-        
-        var response = await _httpClient.PostAsJsonAsync("http://localhost:5048/api/Auth/ParseJwt", content);
+        var response = await _httpClient.PostAsJsonAsync("https://localhost:7145/api/Auth/ParseJwt", new { Data = data });
 
         if (response.IsSuccessStatusCode)
         {

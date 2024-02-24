@@ -32,7 +32,7 @@ public class AuthController : ControllerBase
     
     [HttpPost]
     [Route("[action]")]
-    public async Task<ActionResult<string>> ParseJwt([FromBody] ParseJwtCommand parseJwtCommand)
+    public async Task<ActionResult<string>> ParseJwt(ParseJwtCommand parseJwtCommand)
     {
         try
         {

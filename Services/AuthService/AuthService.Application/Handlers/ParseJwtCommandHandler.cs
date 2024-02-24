@@ -8,7 +8,7 @@ namespace AuthService.Application.Handlers;
 
 public class ParseJwtCommandHandler : IRequestHandler<ParseJwtCommand, UserResponse>
 {
-    public async Task<UserResponse> Handle(ParseJwtCommand request, CancellationToken cancellationToken)
+    public Task<UserResponse> Handle(ParseJwtCommand request, CancellationToken cancellationToken)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var jsonToken = tokenHandler.ReadToken(request.Token) as JwtSecurityToken;
@@ -22,14 +22,14 @@ public class ParseJwtCommandHandler : IRequestHandler<ParseJwtCommand, UserRespo
             Enum.TryParse(role, out UserRole userRole);
             var userId = int.Parse(id); 
             
-            return new UserResponse
+            return Task.FromResult(new UserResponse
             {
                 Id = userId, 
                 UserName = userName,
                 UserRole = userRole
-            };
+            });
         }
 
-        return null;
+        return Task.FromResult<UserResponse>(null);
     }
 }
