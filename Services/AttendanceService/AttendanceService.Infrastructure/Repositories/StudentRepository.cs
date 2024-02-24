@@ -23,4 +23,9 @@ public class StudentRepository : IStudentRepository
     {
         return await _applicationContext.Students.SingleOrDefaultAsync(s => s.Id == id) ?? throw new InvalidOperationException();
     }
+
+    public async Task SaveStudent()
+    {
+        await _applicationContext.SaveChangesAsync();
+    }
 }

@@ -1,5 +1,6 @@
 using AttendanceService.Application.Commands;
 using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AttendanceService.API.Controllers;
@@ -17,17 +18,23 @@ public class AttendanceServiceController : ControllerBase
 
     [HttpPost]
     [Route("[action]")]
-    public async Task<ActionResult> AddLesson([FromBody] AddLessonCommand addLessonCommand)
+    public async Task<ActionResult<string>> AddLesson([FromBody] AddLessonCommand addLessonCommand)
     {
-        await _mediator.Send(addLessonCommand);
-        return NoContent();
+        return await _mediator.Send(addLessonCommand);
     }
     
     [HttpPost]
     [Route("[action]")]
     public async Task<ActionResult> AttendStudent([FromBody] StudentAttendCommand studentAttendCommand)
     {
-        await _mediator.Send(studentAttendCommand);
-        return NoContent();
+        try
+        {
+            await _mediator.Send(studentAttendCommand);
+            return NoContent();
+        }
+        catch (InvalidOperationException ex)
+        {
+            return StatusCode(425, "Пользователь отсутствует в базе");
+        }
     }
 }

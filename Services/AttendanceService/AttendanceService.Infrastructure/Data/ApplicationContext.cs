@@ -1,4 +1,5 @@
 using AttendanceService.Core.Entities;
+using AttendanceService.Core.Entities.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace AttendanceService.Infrastructure.Data;
@@ -21,4 +22,11 @@ public class ApplicationContext : DbContext
         optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=AttendanceDb;Username=postgres;Password=1111", 
             b => b.MigrationsAssembly("AttendanceService.API"));
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Student>().HasData(
+            new Student{Id = 2, UserName = "Зубенко Михаил", StudentFlagEnum = StudentFlagEnum.Absented, UserRole = UserRoleEnum.Student}
+        );
+    } 
 }

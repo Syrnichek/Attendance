@@ -1,5 +1,5 @@
+using AttendanceService.Application.Clients;
 using AttendanceService.Application.Commands;
-using AttendanceService.Core.Data;
 using AttendanceService.Core.Entities.Enums;
 using AttendanceService.Core.Repositories;
 using MediatR;
@@ -10,25 +10,29 @@ public class StudentAttendCommandHandler : IRequestHandler<StudentAttendCommand>
 {
     private readonly ILessonRepository _lessonRepository;
 
-    private readonly IJwtParserClient _jwtParserClient;
+    private readonly IStudentRepository _studentRepository;
 
-    public StudentAttendCommandHandler(ILessonRepository lessonRepository, IJwtParserClient jwtParserClient)
+    public StudentAttendCommandHandler(ILessonRepository lessonRepository, IStudentRepository studentRepository)
     {
         _lessonRepository = lessonRepository;
-        _jwtParserClient = jwtParserClient;
+        _studentRepository = studentRepository;
     }
 
     public async Task Handle(StudentAttendCommand request, CancellationToken cancellationToken)
     {
-        var studentInfo = await _jwtParserClient.ParseJwtAsync(request.StudentJwt);
+        var jwtParser = new JwtParser();
+        var studentInfo = await jwtParser.ParseJwt(request.StudentJwt);
 
         var lessonInfo = await _lessonRepository.GetLessonByGuid(request.LessonId);
+        
+        var studentId = lessonInfo.StudentIds.Find(s => s == studentInfo.Id);
 
-        var student = lessonInfo.StudentIds.Find(s => s.Id == studentInfo.Id);
+        var student = await _studentRepository.GetStudentById(studentId);
         
         if (student != null)
         {
             student.StudentFlagEnum = StudentFlagEnum.Attended;
+            await _studentRepository.SaveStudent();
         }
     }
 }

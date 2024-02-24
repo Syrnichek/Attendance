@@ -18,10 +18,14 @@ public class LessonGeneratorClient : ILessonGeneratorClient
     public async Task<Lesson> GenerateLessonAsync(AddLessonResponse data)
     {
         string jsonContent = JsonConvert.SerializeObject(data);
-        
+
         StringContent content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
         
-        var response = await _httpClient.PostAsJsonAsync("http://localhost:5082/api/LessonsManagment/GenerateLesson", content);
+        var response = await _httpClient.PostAsJsonAsync("http://localhost:5082/api/LessonsManagment/GenerateLesson", new
+        {
+            TeacherId = data.TeacherId.ToString(),
+            StudentIds = data.StudentIds.Select(x => x.ToString()).ToList()
+        });
 
         if (response.IsSuccessStatusCode)
         {

@@ -18,4 +18,9 @@ public class UserRepository : IUserRepository
     {
         return await _userContext.Users.SingleOrDefaultAsync(u => u.UserName == userName && u.Password == password) ?? throw new InvalidOperationException();
     }
+
+    public Task RegisterUserAsync(string userName, string password, UserRole userRole)
+    {
+        throw new NotImplementedException(); //сюда приходит только основные данные note должно ебашить в хэндлер!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
 }

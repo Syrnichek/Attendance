@@ -29,19 +29,4 @@ public class AuthController : ControllerBase
             return Unauthorized();
         }
     }
-    
-    [HttpPost]
-    [Route("[action]")]
-    public async Task<ActionResult<string>> ParseJwt(ParseJwtCommand parseJwtCommand)
-    {
-        try
-        {
-            var result = await _mediator.Send(parseJwtCommand);
-            return Ok(result);
-        }
-        catch (InvalidOperationException) //Поменять экспешн на кастомный, а то не круто
-        {
-            return Unauthorized();
-        }
-    }
 }

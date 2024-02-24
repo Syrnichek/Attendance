@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthService.API.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20240224150338_InitialCreate")]
+    [Migration("20240224220352_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -46,6 +46,22 @@ namespace AuthService.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Password = "54321",
+                            UserName = "Жмышенко Валерий",
+                            UserRole = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Password = "12345",
+                            UserName = "Зубенко Михаил",
+                            UserRole = 0
+                        });
                 });
 #pragma warning restore 612, 618
         }
