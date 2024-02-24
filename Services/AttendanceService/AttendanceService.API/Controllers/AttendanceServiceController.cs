@@ -37,4 +37,12 @@ public class AttendanceServiceController : ControllerBase
             return StatusCode(425, "Пользователь отсутствует в базе");
         }
     }
+    
+    [HttpPost]
+    [Route("[action]")]
+    public async Task<ActionResult> AddUser([FromBody] AddUserCommand addUserCommand)
+    {
+        await _mediator.Send(addUserCommand);
+        return NoContent();
+    }
 }

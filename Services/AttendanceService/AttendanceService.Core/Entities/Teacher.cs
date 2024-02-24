@@ -9,6 +9,4 @@ public class Teacher : UserBase
     public int Id { get; set; }
     
     public TeacherGradeEnum TeacherGradeEnum { get; set; }
-    
-    public string? Note { get; set; }
 }

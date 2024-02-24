@@ -1,6 +1,8 @@
 using System.Text;
+using AuthService.Application.Clients;
 using AuthService.Application.Commands;
 using AuthService.Application.Handlers;
+using AuthService.Core.Data;
 using AuthService.Core.Repositories;
 using AuthService.Infrastructure.Data;
 using AuthService.Infrastructure.Repositories;
@@ -20,6 +22,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+builder.Services.AddHttpClient<IRegisterUserClient, RegisterUserClient>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

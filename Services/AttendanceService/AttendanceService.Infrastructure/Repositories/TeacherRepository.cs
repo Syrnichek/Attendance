@@ -23,4 +23,10 @@ public class TeacherRepository : ITeacherRepository
     {
         return await _applicationContext.Teachers.SingleOrDefaultAsync(t => t.Id == id) ?? throw new InvalidOperationException();
     }
+
+    public async Task AddTeacher(Teacher teacher)
+    {
+        _applicationContext.Teachers.Add(teacher);
+        await _applicationContext.SaveChangesAsync();
+    }
 }

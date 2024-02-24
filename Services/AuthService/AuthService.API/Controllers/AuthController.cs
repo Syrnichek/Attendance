@@ -29,4 +29,12 @@ public class AuthController : ControllerBase
             return Unauthorized();
         }
     }
+    
+    [HttpPost]
+    [Route("[action]")]
+    public async Task<ActionResult> RegisterUser([FromBody] RegisterUserCommand registerUserCommand)
+    {
+        await _mediator.Send(registerUserCommand);
+        return NoContent();
+    }
 }

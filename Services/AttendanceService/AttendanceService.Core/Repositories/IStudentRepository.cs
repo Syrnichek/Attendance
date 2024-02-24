@@ -9,4 +9,6 @@ public interface IStudentRepository
     public Task<Student> GetStudentById(int id);
 
     public Task SaveStudent();
+
+    public Task AddStudent(Student student);
 }

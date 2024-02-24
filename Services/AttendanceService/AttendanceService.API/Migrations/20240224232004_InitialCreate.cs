@@ -35,7 +35,8 @@ namespace AttendanceService.API.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     StudentFlagEnum = table.Column<int>(type: "integer", nullable: false),
                     UserName = table.Column<string>(type: "text", nullable: false),
-                    UserRole = table.Column<int>(type: "integer", nullable: false)
+                    UserRole = table.Column<int>(type: "integer", nullable: false),
+                    UserNote = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -49,9 +50,9 @@ namespace AttendanceService.API.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     TeacherGradeEnum = table.Column<int>(type: "integer", nullable: false),
-                    Note = table.Column<string>(type: "text", nullable: true),
                     UserName = table.Column<string>(type: "text", nullable: false),
-                    UserRole = table.Column<int>(type: "integer", nullable: false)
+                    UserRole = table.Column<int>(type: "integer", nullable: false),
+                    UserNote = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -60,8 +61,8 @@ namespace AttendanceService.API.Migrations
 
             migrationBuilder.InsertData(
                 table: "Students",
-                columns: new[] { "Id", "StudentFlagEnum", "UserName", "UserRole" },
-                values: new object[] { 2, 1, "Зубенко Михаил", 0 });
+                columns: new[] { "Id", "StudentFlagEnum", "UserName", "UserNote", "UserRole" },
+                values: new object[] { 2, 1, "Зубенко Михаил", null, 0 });
         }
 
         /// <inheritdoc />

@@ -28,4 +28,10 @@ public class StudentRepository : IStudentRepository
     {
         await _applicationContext.SaveChangesAsync();
     }
+
+    public async Task AddStudent(Student student)
+    {
+        _applicationContext.Students.Add(student);
+        await _applicationContext.SaveChangesAsync();
+    }
 }

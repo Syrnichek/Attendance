@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AttendanceService.API.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240224215853_InitialCreate")]
+    [Migration("20240224232004_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -63,6 +63,9 @@ namespace AttendanceService.API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("UserNote")
+                        .HasColumnType("text");
+
                     b.Property<int>("UserRole")
                         .HasColumnType("integer");
 
@@ -88,14 +91,14 @@ namespace AttendanceService.API.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Note")
-                        .HasColumnType("text");
-
                     b.Property<int>("TeacherGradeEnum")
                         .HasColumnType("integer");
 
                     b.Property<string>("UserName")
                         .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserNote")
                         .HasColumnType("text");
 
                     b.Property<int>("UserRole")

@@ -7,4 +7,6 @@ public interface ITeacherRepository
     public Task<List<Teacher>> GetAllTeachers();
     
     public Task<Teacher> GetTeacherById(int id);
+
+    public Task AddTeacher(Teacher teacher);
 }

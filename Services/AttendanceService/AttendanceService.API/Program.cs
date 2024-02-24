@@ -16,10 +16,11 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
     typeof(AddLessonComandHandler).Assembly,
     typeof(AddLessonCommand).Assembly,
     typeof(StudentAttendCommand).Assembly,
-    typeof(StudentAttendCommandHandler).Assembly
+    typeof(StudentAttendCommandHandler).Assembly,
+    typeof(AddUserCommandHandler).Assembly,
+    typeof(AddUserCommand).Assembly
 ));
 
-builder.Services.AddHttpClient<IJwtParserClient, JwtParserClient>();
 builder.Services.AddHttpClient<ILessonGeneratorClient, LessonGeneratorClient>();
 
 builder.Services.AddScoped<ILessonRepository, LessonRepository>();
